@@ -1,18 +1,13 @@
 <template>
   <nav>
-    <v-system-bar app dark>
-      <v-spacer></v-spacer>
-      <v-icon>mdi-minus</v-icon>
-      <v-icon>mdi-checkbox-blank-outline</v-icon>
-      <v-icon>mdi-close</v-icon>
-    </v-system-bar>
-    <v-app-bar app color="pink" dark>
+    
+    <v-app-bar app color="dark" dark>
       <v-icon class="mr-2">fas fa-video</v-icon>
       <v-toolbar-title>The Movie DataBase</v-toolbar-title>
-      <v-btn text class="ml-2" to="/films">Movies</v-btn>
-      <v-btn text class="ml-2" to="/actors">Actors</v-btn>
-      <v-btn text class="ml-2">Profile</v-btn>
-      <v-btn text class="ml-2">Contact</v-btn>
+      <v-btn text class="ml-2" to="/">Фильмы</v-btn>
+      <v-btn text class="ml-2" to="/actors">Актеры</v-btn>
+      <v-btn text class="ml-2">Профиль</v-btn>
+      <v-btn text class="ml-2">Поддержка</v-btn>
       <v-spacer></v-spacer>
       <v-autocomplete
         clearable
