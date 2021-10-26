@@ -8,7 +8,7 @@
         <v-btn color="primary" @click="loadActors">поиск</v-btn>
       </div>
       <v-row>
-        <v-col v-for="actor in actors" :key="actor.id">
+        <v-col cols="3" v-for="actor in actors" :key="actor.id">
           <person-card :actor="actor"></person-card>
         </v-col>
       </v-row>
@@ -34,7 +34,7 @@ export default {
     info: null,
     loading: false,
     page: 1,
-    name: "a",
+    name: "brad",
   }),
 
   mounted() {

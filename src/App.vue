@@ -1,27 +1,30 @@
 <template>
   <v-app>
-    <v-app-bar app>
-     
-        <v-app-bar-title>The Movie DataBase</v-app-bar-title>
-
-        <v-spacer />
-
-        <v-btn elevation="0" :to="{ name: 'films' }">Фильмы</v-btn>
-        <v-btn elevation="0" :to="{ name: 'actors' }">Персоны</v-btn>
-        <v-spacer />
-      </v-app-bar>
-
-
+    <nav-bar></nav-bar>
     <v-main app>
       <router-view></router-view>
     </v-main>
+    <Footer></Footer>
   </v-app>
 </template>
 
 
 <script>
+import NavBar from './components/NavBar.vue';
+import Footer from './components/Footer.vue';
+
 export default {
   name: "App",
+  components: {
+    NavBar,
+    Footer
+  },
+
+data: () => ({
+
+}),
+
+
 };
 </script>
 

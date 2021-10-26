@@ -1,6 +1,7 @@
 <template>
   <v-card>
-    <v-img :src="img + actor.profile_path"> </v-img>
+    <v-img v-if="actor.profile_path" :src="img + actor.profile_path"> </v-img>
+    <v-img v-else src="https://via.placeholder.com/600x900?text=no_image"> </v-img>
 
     <v-card-title>{{ actor.name }}</v-card-title>
     <v-card-subtitle>
