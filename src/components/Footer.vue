@@ -1,5 +1,6 @@
 <template>
   <v-footer dark padless>
+    <v-spacer>
     <v-card flat tile class="dark white--text text-center">
       <v-card-text>
         <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
@@ -19,6 +20,7 @@
         {{ new Date().getFullYear() }} — <strong>Online cinema</strong>
       </v-card-text>
     </v-card>
+    </v-spacer>
   </v-footer>
 </template>
 

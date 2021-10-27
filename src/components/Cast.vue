@@ -1,12 +1,14 @@
 <template>
   <div>
-      <h2 class="mt-2 grey--text">Cast</h2>
+      <h2 class="mt-2 grey--text">Актерский состав</h2>
       <v-container>
           <v-row>
               <v-col cols="12" sm="3" :key="inedx" v-for="(cast, inedx) in casts">
                   <v-hover v-slot="{hover}" open-delay="200">
                       <v-card :elevation="hover ? 16 : 2" :class="{'on-hover' :hover}">
+                          <router-link :to="`/actor/${cast.id}`">
                           <v-img :src="castProfileImage(cast)" />
+                          </router-link>
                           <v-card-title class="subtitle-2">{{cast.name}}</v-card-title>
                       </v-card>
                   </v-hover>

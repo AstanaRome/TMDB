@@ -47,7 +47,7 @@
             {{ this.movie.overview }}
           </p>
           <div class="mt-5">
-            <h2 class="mt-5 grey--text text--darken-3">Featured Cast</h2>
+            <h2 class="mt-5 grey--text text--darken-3">Съемочная команда</h2>
             <div
               :key="index"
               v-for="(crew, index) in movie.credits.crew"
@@ -93,7 +93,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="error" text @click="dialog = flase">Close</v-btn>
+                <v-btn color="error" text @click="dialog = false">Close</v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
