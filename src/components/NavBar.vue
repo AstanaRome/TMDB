@@ -1,6 +1,5 @@
 <template>
-  <nav>
-    
+  <nav>    
     <v-app-bar app color="dark" dark>
       <v-icon class="mr-2">fas fa-video</v-icon>
       <v-toolbar-title>The Movie DataBase</v-toolbar-title>
