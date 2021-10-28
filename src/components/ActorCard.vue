@@ -32,8 +32,9 @@ export default {
     },
     knownFor() {
       let knownStr = "";
-      for (let i; i < this.actor.known_for.length - 1; i++) {
-        knownStr += this.actor.known_for[i].title;
+      for (let i=0; i < this.actor.known_for.length - 1; i++) {
+        knownStr +=this.actor.known_for[i].title + '; '  ;
+      
       }
       return knownStr;
     },

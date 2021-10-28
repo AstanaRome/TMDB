@@ -1,5 +1,5 @@
 <template>
-  <nav>    
+  <nav>
     <v-app-bar app color="dark" dark>
       <v-icon class="mr-2">fas fa-video</v-icon>
       <v-toolbar-title>The Movie DataBase</v-toolbar-title>
@@ -20,7 +20,11 @@
         item-text="title"
         item-value="id"
         id="search"
-      ></v-autocomplete>
+      >
+        <template v-slot:item="{ item }">
+          <v-btn text :to="`/movie/${item.id}`">{{ item.title }}</v-btn>
+        </template></v-autocomplete
+      >
       <v-btn icon>
         <v-badge color="green" content="2" overlap>
           <v-icon>far fa-bell</v-icon>
@@ -36,10 +40,34 @@
 </template>
 
 <script>
+import http from "@/plugins/http";
 export default {
   data: () => ({
     drawer: null,
+    model: '',
+    search:"ff",
+    movies: [],
   }),
+  mounted() {
+    this.loadMovies();
+  },
+  methods: {
+    loadMovies: async function () {
+      try {
+        const response = await http.get(`search/movie`, {
+          params: {
+            query: this.search,
+            api_key: "af492b73c1126de8c879a4e329dbb3f3",
+            include_adult: false,
+            language: "ru",
+          },
+        })
+        this.movies = response.data.results;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 };
 </script>
 
