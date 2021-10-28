@@ -9,6 +9,7 @@
       <v-btn text class="ml-2">Поддержка</v-btn>
       <v-spacer></v-spacer>
       <v-autocomplete
+        :search-input.sync="search"
         clearable
         hide-no-data
         hide-selected
@@ -18,8 +19,6 @@
         flat
         :items="movies"
         item-text="title"
-        item-value="id"
-        id="search"
       >
         <template v-slot:item="{ item }">
           <v-btn text :to="`/movie/${item.id}`">{{ item.title }}</v-btn>
@@ -41,27 +40,40 @@
 
 <script>
 import http from "@/plugins/http";
+import axios from "axios";
+
 export default {
   data: () => ({
     drawer: null,
-    model: '',
-    search:"ff",
+    model: "",
+    search: "а",
     movies: [],
   }),
   mounted() {
     this.loadMovies();
   },
+  watch: {
+    search(val) {
+      if (val) {
+        this.loadMovies();
+      }
+    },
+  },
+
   methods: {
     loadMovies: async function () {
+      const CancelToken = axios.CancelToken;
+      const source = CancelToken.source();
       try {
         const response = await http.get(`search/movie`, {
+          cancelToken: source.token,
           params: {
             query: this.search,
             api_key: "af492b73c1126de8c879a4e329dbb3f3",
             include_adult: false,
             language: "ru",
           },
-        })
+        });
         this.movies = response.data.results;
       } catch (error) {
         console.log(error);
